@@ -1,0 +1,16 @@
+<% if flash[:alert] %>
+  <h2><%= flash[:alert] %></h2>
+<% end %>
+
+<%= form_with model: @response do |f| %>
+  <div class="container">
+    <div class="col-md-6 offset-3 mt-3 session-margin">
+      <div class="login-form" style="margin-bottom: 16px;">
+        <%= f.label :answer, "Add your comment" %>
+        <%= f.text_area :answer, size: "60x10" %>
+        <%= f.hidden_field :enquiry_id, value: @enquiry.id %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

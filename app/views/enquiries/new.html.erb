@@ -1,0 +1,15 @@
+<% if flash[:alert] %>
+  <h2><%= flash[:alert] %></h2>
+<% end %>
+
+<%= form_with model: @enquiry do |f| %>
+  <div class="container">
+    <div class="col-md-6 offset-3 mt-3 session-margin">
+      <div class="login-form" style="margin-bottom: 16px;">
+        <%= f.label :question, "Add your question" %>
+        <%= f.text_field :question, class: 'form-control-file', required: true, size: '100x10' %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

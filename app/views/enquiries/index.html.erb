@@ -1,0 +1,26 @@
+<div class="contain">
+  <div class="flex">
+    <div class="btn btn-light" style="margin: 24px;">
+      <%= link_to "Add a question", new_enquiry_path %>
+    </div>
+    <ul>
+      <% @enquiries.each do |e| %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="card-description">
+            <div>
+              <li><%= e.question %></li>
+              <% e.responses.each do |r| %>
+                <ul>
+                  <li><%= r.answer %></li>
+                </ul>
+               <% end %>
+              <div class="card-link">
+                <%= link_to "Reply", new_response_path(e), class: "btn btn-info" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>
